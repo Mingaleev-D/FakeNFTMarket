@@ -11,7 +11,7 @@ data class Rating(
     val id:UUID = UUID.randomUUID()
 )
 
-val raking = listOf<Rating>(
+val rating = listOf<Rating>(
     Rating("Azumi", R.drawable.ranking01, 3.99,200055.02),
     Rating("Hape prime", R.drawable.ranking02, 33.99,200055.02),
     Rating("Cryoto", R.drawable.ranking03, 43.09,200055.2),
