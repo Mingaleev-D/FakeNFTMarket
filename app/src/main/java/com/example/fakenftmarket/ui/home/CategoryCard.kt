@@ -27,9 +27,8 @@ import com.example.fakenftmarket.ui.theme.FakeNFTMarketTheme
  */
 
 @Composable
-fun CategoryCard(
-    title: String,
-    image: Painter
+fun CategoryCard(title: String,
+                 image: Painter
 ) {
    Box(modifier = Modifier
       .clip(RoundedCornerShape(27.dp))
