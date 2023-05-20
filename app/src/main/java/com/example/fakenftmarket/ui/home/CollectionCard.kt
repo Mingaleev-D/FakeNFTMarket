@@ -1,6 +1,7 @@
 package com.example.fakenftmarket.ui.home
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -45,7 +46,8 @@ fun CollectionCard(title: String,
       .border(width = 1.dp,
               color = Color.White.copy(0.5f),
               shape = RoundedCornerShape(30.dp)
-      )
+      ).clip(RoundedCornerShape(30.dp))
+      .background(Color.White.copy(0.2f))
    ) {
       Image(painter = image, contentDescription = "",
             modifier = Modifier
@@ -73,7 +75,7 @@ fun CollectionCard(title: String,
          )
          {
             IconToggleButton(checked = isLikes, onCheckedChange = {
-               isLikes != isLikes
+               isLikes = !isLikes
             },
                              modifier = Modifier.padding(13.dp)
             ) {

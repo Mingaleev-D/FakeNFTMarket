@@ -2,6 +2,8 @@ package com.example.fakenftmarket.ui.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -21,7 +23,10 @@ import com.example.fakenftmarket.ui.theme.FakeNFTMarketTheme
 @Composable
 fun HomeScreen() {
    Scaffold(backgroundColor = Color(33, 17, 52)) {
-      Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+      Column(modifier = Modifier
+         .padding(horizontal = 16.dp)
+         .verticalScroll(rememberScrollState())
+      ) {
          CategoryList()
          Text(text = "Trending collections",
               fontSize = 20.sp,
@@ -34,6 +39,7 @@ fun HomeScreen() {
               color = Color.White,
               fontWeight = FontWeight.SemiBold
          )
+         NFTList()
       }
    }
 
