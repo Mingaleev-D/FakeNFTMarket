@@ -20,6 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.fakenftmarket.ui.home.HomeScreen
 import com.example.fakenftmarket.ui.onboarding.OnboardingCardScreen
 import com.example.fakenftmarket.ui.theme.FakeNFTMarketTheme
 
@@ -32,7 +33,7 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colors.background,
             ) {
-               OnboardingCardScreen()
+               RootScreen()
             }
          }
       }
