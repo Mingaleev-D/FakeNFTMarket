@@ -9,7 +9,7 @@ import androidx.compose.material.IconToggleButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -34,6 +34,11 @@ fun CollectionCard(title: String,
                    image: Painter,
                    likes: Int
 ) {
+
+   var isLikes by remember {
+      mutableStateOf(false)
+   }
+
    Column(modifier = Modifier
       .width(216.dp)
       .height(216.dp)
@@ -67,11 +72,16 @@ fun CollectionCard(title: String,
              verticalAlignment = Alignment.CenterVertically
          )
          {
-            IconToggleButton(checked = true, onCheckedChange = {
-               //todo checked value
-            }) {
-               Icon(tint = Color.Red,
-                    imageVector = Icons.Filled.Favorite,
+            IconToggleButton(checked = isLikes, onCheckedChange = {
+               isLikes != isLikes
+            },
+                             modifier = Modifier.padding(13.dp)
+            ) {
+               Icon(tint = if (isLikes) Color.Red else Color(235,
+                                                             235,
+                                                             245
+               ).copy(0.6f),
+                    imageVector = if (isLikes) Icons.Filled.Favorite else Icons.Default.Favorite,
                     contentDescription = ""
                )
             }
