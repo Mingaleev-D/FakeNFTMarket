@@ -14,7 +14,12 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.fakenftmarket.ui.home.HomeScreen
+import com.example.fakenftmarket.ui.onboarding.OnboardingCardScreen
+import com.example.fakenftmarket.ui.stats.StatsScreen
 import com.example.fakenftmarket.ui.theme.FakeNFTMarketTheme
 
 /**
@@ -24,10 +29,23 @@ import com.example.fakenftmarket.ui.theme.FakeNFTMarketTheme
 
 @Composable
 fun RootScreen() {
+   val navController = rememberNavController()
+   
    Scaffold(bottomBar = {
       BottomBar()
    }) {
-      HomeScreen()
+     NavHost(navController = navController, startDestination = NavigationItem.Login.route){
+        composable(NavigationItem.Login.route){
+           OnboardingCardScreen()
+        }
+        composable(NavigationItem.Home.route){
+           HomeScreen()
+        }
+        composable(NavigationItem.Stats.route){
+           StatsScreen()
+        }
+        //todo additional screens if necessary
+     }
    }
 }
 
